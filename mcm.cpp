@@ -1,7 +1,5 @@
-// Matrix Chain Multiplication
 #include <bits/stdc++.h>
 using namespace std;
-
 int matrixMultiplication(vector<int> &arr)
 {
     int n = arr.size();
@@ -19,13 +17,13 @@ int matrixMultiplication(vector<int> &arr)
             }
         }
     }
-
     return dp[0][n - 1];
 }
 
 int main()
 {
-    vector<int> arr = {2, 1, 3, 4};
+
+    vector<int> arr = {10, 20, 30, 5, 60};
     cout << matrixMultiplication(arr);
     return 0;
 }
