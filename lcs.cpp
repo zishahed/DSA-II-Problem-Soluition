@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string lcs(string &s1, string &s2) {
+string lcs(string &s1, string &s2)
+{
     int m = s1.length(), n = s2.length();
     vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
     for (int i = 1; i <= m; ++i)
@@ -12,21 +13,25 @@ string lcs(string &s1, string &s2) {
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
     string lcs_str;
     int i = m, j = n;
-    while (i > 0 && j > 0) {
-        if (s1[i - 1] == s2[j - 1]) {
+    while (i > 0 && j > 0)
+    {
+        if (s1[i - 1] == s2[j - 1])
+        {
             lcs_str += s1[i - 1];
-            --i; --j;
-        } else if (dp[i - 1][j] > dp[i][j - 1]) {
             --i;
-        } else {
             --j;
         }
+        else if (dp[i - 1][j] > dp[i][j - 1])
+            --i;
+        else
+            --j;
     }
-    reverse(lcs_str.begin(), lcs_str.end()); 
+    reverse(lcs_str.begin(), lcs_str.end());
     return lcs_str;
 }
 
-int main() {
+int main()
+{
     string s1, s2;
     cin >> s1 >> s2;
     string lcs_result = lcs(s1, s2);
